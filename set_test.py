@@ -35,35 +35,7 @@ from string import digits
 
 def make_text(merged_word_list):
 
-    first_words = random.choice(merged_word_list.keys())
-    value = random.choice(merged_word_list[first_words])
-
-    next_words = first_words[1], first_words[2], value
-
-    print first_words
-    print value
-    return_string=value.capitalize()
-
-    while next_words in merged_word_list.keys() and len(return_string)<140:
-
-        value = random.choice(merged_word_list[next_words])
-
-        return_string += " " + value
-
-        next_words = next_words[1], next_words[2], value
-
-    print return_string + "."
-
-    # while first_words in merged_word_list.keys():
-    #     markov_sentence= start
-
-    #     if len
-        
-
-         
-
-
-
+    while 
 
 
 
