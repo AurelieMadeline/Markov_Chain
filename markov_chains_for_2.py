@@ -9,30 +9,6 @@ import random
 from string import digits
 
 
-
-# def make_text(max_words,merged_word_list):
-#     """Takes a dictionary of markov chains and returns random text
-#     based off an original text."""
-
-    # first_words = random.choice(merged_word_list.keys())
-
-    # for i in range(max_words):
-    #     next_words = merged_word_list.get(first_words, None)
-
-    #     word = random.choice(next_words)
-
-    #     if i == 0:
-    #         print word.capitalize(),
-    #     elif i == max_words-1:
-    #         print word + "."
-    #     else:
-    #         print word,
-
-    #     first_words = new_words(first_words, word)
-
-#want to modify function to check for period after value, to capitalize following value, search for prepositions and conjunctions at end of sentence.
-
-
 def make_text(merged_word_list):
 
     first_words = random.choice(merged_word_list.keys())
@@ -40,38 +16,24 @@ def make_text(merged_word_list):
 
     next_words = first_words[1], first_words[2], value
 
-    print first_words
-    print value
     return_string=value.capitalize()
 
-    while next_words in merged_word_list.keys() and len(return_string)<140:
-
-        value = random.choice(merged_word_list[next_words])
+    while True:
 
         return_string += " " + value
 
-        next_words = next_words[1], next_words[2], value
+        if next_words not in merged_word_list.keys():
+            continue
 
-    print return_string + "."
+        if len(return_string) < 140:
 
-    # while first_words in merged_word_list.keys():
-    #     markov_sentence= start
+            value = random.choice(merged_word_list[next_words])
 
-    #     if len
+            next_words = next_words[1], next_words[2], value
         
-
-         
-
-
-
-
-
-
-
-
-# def new_words(first_words, word):
-
-#     return first_words[1:] + (word,)
+        else:
+            print return_string + "."
+            break
 
 
 
@@ -115,4 +77,3 @@ def main(filename_1, filename_2):
 
 if __name__ == "__main__":
     main(argv[1], argv[2])
-    # main(argv[1])
